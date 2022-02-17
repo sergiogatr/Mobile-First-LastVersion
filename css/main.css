@@ -1,0 +1,168 @@
+/* Hoja de Estilos */
+
+/* He realizado una página que vista en landscape tiene el header y el main en color White.
+El footer por otro lado es de color Black, he jugado con el contraste haciendo que el color del texto
+sea del color contrario teniendo en cuenta el Black != White.
+Al ponerlo en portrait se invierten completamente los colores, también juego un poco con los
+bordes negros de las imágenes en el landscape.  */
+
+/* Todo */
+*, *::before, *::after {
+	padding: 0;
+	margin: 0;
+	
+	box-sizing: border-box;
+}
+
+/* Main & Footer */
+main, footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin: 10px;
+}
+
+/* Header */
+header {
+    margin: 10px;
+    min-height: 20vh;
+
+    gap: 5px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+    background-color: white;
+    color: black;
+}
+
+/* Imágenes */
+img {
+    border: 1px solid black;
+}
+header > img {
+    height: 150px;
+    width: auto;
+    object-fit: contain;
+}
+section > img {
+    height: 170px;
+    margin: 10px;
+    width: auto;
+    object-fit: cover;
+    
+}
+
+/* Main */
+main {
+    min-height: calc(70vh - 70px);
+    justify-content: space-around;
+    color: black;
+    background-color: white;
+
+    display: grid;
+}
+
+/* Section */
+section {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+section > p {
+    padding: 5px;
+    text-align: justify;
+    width: 200px;
+    margin: 0 auto;
+}
+section > h3 {
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    height: 10vh;
+}
+
+
+/* Fuentes */
+h1 {
+    font-size: 27px;
+}
+h2 {
+    font-size: 23px;
+}
+h3 {
+    font-size: 25px;
+}
+
+/* Media */
+/* Landscape */
+@media (orientation:landscape) {
+    /* Ajustar Colores */
+    body {
+        background-color: black;
+        color: white;
+    }
+}
+
+/* Portrait */
+@media (orientation:portrait) {
+    /* Ajustar Colores */
+    body {
+        background-color: white;
+        color: black;
+    }
+
+    img {
+        border: none;
+    }
+
+    header {
+        background-color: black;
+        color: white;
+    }
+
+    header > h1 {
+        width: 250px;
+    }
+
+    header > img:last-child {
+        display: none;
+    }
+
+    nav {
+        background-color: white;
+    }
+
+    main {
+        background-color: black;
+        color: white;
+    }
+
+    main > section {
+        background-color: black;
+    }
+
+    section > p {
+        background-color: black;
+    }
+}
+
+/* Media 2 Columnas */
+@media only screen and (min-width: 600px) {
+    main {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Media 4 Columnas */
+@media only screen and (min-width: 900px) {
+    main {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
